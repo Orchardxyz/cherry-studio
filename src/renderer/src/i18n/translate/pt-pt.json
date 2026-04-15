@@ -5066,6 +5066,8 @@
       "disabled": "Mini Aplicativos Ocultos",
       "display_title": "Configurações de Exibição dos Mini Aplicativos",
       "empty": "Arraste para cá os mini aplicativos que deseja ocultar",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Abrir link em nova janela do navegador"
       },

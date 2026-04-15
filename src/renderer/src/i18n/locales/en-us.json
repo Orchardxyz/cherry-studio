@@ -5066,6 +5066,8 @@
       "disabled": "Hidden Mini Apps",
       "display_title": "Mini App Display Settings",
       "empty": "Drag mini apps from the left to hide them",
+      "merge_sidebar_description": "Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Open new-window links in browser"
       },

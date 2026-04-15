@@ -8,6 +8,7 @@ import type { RootState } from '@renderer/store'
 import { useAppDispatch, useAppSelector } from '@renderer/store'
 import {
   setMaxKeepAliveMinapps,
+  setMergeSidebarMinapps,
   setMinAppRegion,
   setMinappsOpenLinkExternal,
   setShowOpenedMinappsInSidebar
@@ -46,7 +47,8 @@ const RegionSelector: FC = () => {
 const MiniAppSettings: FC = () => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
-  const { maxKeepAliveMinapps, showOpenedMinappsInSidebar, minappsOpenLinkExternal } = useSettings()
+  const { maxKeepAliveMinapps, showOpenedMinappsInSidebar, mergeSidebarMinapps, minappsOpenLinkExternal } =
+    useSettings()
   const { minapps, disabled, updateMinapps, updateDisabledMinapps } = useMinapps()
 
   const [visibleMiniApps, setVisibleMiniApps] = useState(minapps)
@@ -183,6 +185,14 @@ const MiniAppSettings: FC = () => {
           checked={showOpenedMinappsInSidebar}
           onChange={(checked) => dispatch(setShowOpenedMinappsInSidebar(checked))}
         />
+      </SettingRow>
+      <SettingDivider />
+      <SettingRow>
+        <SettingLabelGroup>
+          <SettingRowTitle>{t('settings.miniapps.merge_sidebar_title')}</SettingRowTitle>
+          <SettingDescription>{t('settings.miniapps.merge_sidebar_description')}</SettingDescription>
+        </SettingLabelGroup>
+        <Switch checked={mergeSidebarMinapps} onChange={(checked) => dispatch(setMergeSidebarMinapps(checked))} />
       </SettingRow>
     </Container>
   )

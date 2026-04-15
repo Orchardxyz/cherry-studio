@@ -5066,6 +5066,8 @@
       "disabled": "Απόκρυψη μικροπρογράμματος",
       "display_title": "Ρυθμίσεις Εμφάνισης Μικροπρογράμματος",
       "empty": "Σύρετε το μικροπρόγραμμα που θέλετε να αποκρύψετε από την αριστερή πλευρά σε αυτήν την περιοχή",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Άνοιγμα νέου παραθύρου σύνδεσης στον περιηγητή"
       },

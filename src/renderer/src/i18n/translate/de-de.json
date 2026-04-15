@@ -5066,6 +5066,8 @@
       "disabled": "Ausgeblendete Mini-Apps",
       "display_title": "Mini-App-Anzeigeeinstellungen",
       "empty": "Mini-Apps die ausgeblendet werden sollen von links hierher ziehen",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Neue Fensterlinks im Browser öffnen"
       },

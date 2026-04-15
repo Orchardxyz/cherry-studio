@@ -5066,6 +5066,8 @@
       "disabled": "Miniaplicaciones ocultas",
       "display_title": "Configuración de visualización de miniaplicaciones",
       "empty": "Arrastra aquí las miniaplicaciones que deseas ocultar desde la izquierda",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Abrir enlace en nueva ventana del navegador"
       },

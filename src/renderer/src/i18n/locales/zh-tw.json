@@ -5066,6 +5066,8 @@
       "disabled": "隱藏的小程式",
       "display_title": "小程式顯示設定",
       "empty": "把要隱藏的小程式從左側拖曳到這裡",
+      "merge_sidebar_description": "將活躍和固定的小程式合併到一個清單中以節省空間",
+      "merge_sidebar_title": "合併側邊欄小程式",
       "open_link_external": {
         "title": "在瀏覽器中開啟新視窗連結"
       },

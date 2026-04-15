@@ -5066,6 +5066,8 @@
       "disabled": "隐藏的小程序",
       "display_title": "小程序显示设置",
       "empty": "把要隐藏的小程序从左侧拖拽到这里",
+      "merge_sidebar_description": "将活跃和固定的小程序合并到一个列表中以节省空间",
+      "merge_sidebar_title": "合并侧边栏小程序",
       "open_link_external": {
         "title": "在浏览器中打开新窗口链接"
       },

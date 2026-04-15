@@ -36,12 +36,12 @@ import styled from 'styled-components'
 
 import { OpenClawSidebarIcon } from '../Icons/SVGIcon'
 import UserPopup from '../Popups/UserPopup'
-import { SidebarOpenedMinappTabs, SidebarPinnedApps } from './PinnedMinapps'
+import { SidebarMergedMinapps, SidebarOpenedMinappTabs, SidebarPinnedApps } from './PinnedMinapps'
 
 const Sidebar: FC = () => {
   const { hideMinappPopup } = useMinappPopup()
   const { minappShow } = useRuntime()
-  const { sidebarIcons } = useSettings()
+  const { sidebarIcons, mergeSidebarMinapps } = useSettings()
   const { pinned } = useMinapps()
 
   const { pathname } = useLocation()
@@ -80,14 +80,29 @@ const Sidebar: FC = () => {
         <Menus onClick={hideMinappPopup}>
           <MainMenus />
         </Menus>
-        <SidebarOpenedMinappTabs />
-        {showPinnedApps && (
-          <AppsContainer>
-            <Divider />
-            <Menus>
-              <SidebarPinnedApps />
-            </Menus>
-          </AppsContainer>
+        {mergeSidebarMinapps ? (
+          // Merged view: show active and pinned apps in a single list
+          showPinnedApps && (
+            <AppsContainer>
+              <Divider />
+              <Menus>
+                <SidebarMergedMinapps />
+              </Menus>
+            </AppsContainer>
+          )
+        ) : (
+          // Separated view: show active and pinned apps separately
+          <>
+            <SidebarOpenedMinappTabs />
+            {showPinnedApps && (
+              <AppsContainer>
+                <Divider />
+                <Menus>
+                  <SidebarPinnedApps />
+                </Menus>
+              </AppsContainer>
+            )}
+          </>
         )}
       </MainMenusContainer>
       <Menus>

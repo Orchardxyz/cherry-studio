@@ -7,7 +7,7 @@ import type { MinAppType } from '@renderer/types'
 import type { MenuProps } from 'antd'
 import { Dropdown, Tooltip } from 'antd'
 import type { FC } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
@@ -139,6 +139,97 @@ export const SidebarPinnedApps: FC = () => {
         )
       }}
     </DraggableList>
+  )
+}
+
+/** Merged list of opened and pinned minapps in sidebar */
+export const SidebarMergedMinapps: FC = () => {
+  const { pinned, updatePinnedMinapps } = useMinapps()
+  const { minappShow, openedKeepAliveMinapps, currentMinappId } = useRuntime()
+  const { openMinappKeepAlive, hideMinappPopup, closeMinapp, closeAllMinapps } = useMinappPopup()
+  const { theme } = useTheme()
+  const { t } = useTranslation()
+  const { isTopNavbar } = useNavbarPosition()
+
+  // Merge opened apps with pinned apps (similar to Launchpad logic)
+  const mergedMinapps = useMemo(() => {
+    const result = [...pinned]
+    openedKeepAliveMinapps.forEach((app) => {
+      if (!result.some((pinnedApp) => pinnedApp.id === app.id)) {
+        result.push(app)
+      }
+    })
+    return result
+  }, [openedKeepAliveMinapps, pinned])
+
+  const handleOnClick = (app: MinAppType) => {
+    if (minappShow && currentMinappId === app.id) {
+      hideMinappPopup()
+    } else {
+      openMinappKeepAlive(app)
+    }
+  }
+
+  if (mergedMinapps.length === 0) return null
+
+  return (
+    <Menus>
+      {mergedMinapps.map((app) => {
+        const isPinned = pinned.some((item) => item.id === app.id)
+        const isOpened = openedKeepAliveMinapps.some((item) => item.id === app.id)
+        const isActive = minappShow && currentMinappId === app.id
+
+        const menuItems: MenuProps['items'] = [
+          isPinned
+            ? {
+                key: 'togglePin',
+                label: isTopNavbar ? t('minapp.remove_from_launchpad') : t('minapp.remove_from_sidebar'),
+                onClick: () => {
+                  updatePinnedMinapps(pinned.filter((item) => item.id !== app.id))
+                }
+              }
+            : {
+                key: 'togglePin',
+                label: isTopNavbar ? t('minapp.add_to_launchpad') : t('minapp.add_to_sidebar'),
+                onClick: () => {
+                  updatePinnedMinapps([...pinned, app])
+                }
+              },
+          ...(isOpened
+            ? [
+                { type: 'divider' as const },
+                {
+                  key: 'closeApp',
+                  label: t('minapp.sidebar.close.title'),
+                  onClick: () => {
+                    closeMinapp(app.id)
+                  }
+                },
+                {
+                  key: 'closeAllApp',
+                  label: t('minapp.sidebar.closeall.title'),
+                  onClick: () => {
+                    closeAllMinapps()
+                  }
+                }
+              ]
+            : [])
+        ]
+
+        return (
+          <Tooltip key={app.id} title={app.name} mouseEnterDelay={0.8} placement="right">
+            <Dropdown menu={{ items: menuItems }} trigger={['contextMenu']} overlayStyle={{ zIndex: 10000 }}>
+              <Icon
+                theme={theme}
+                onClick={() => handleOnClick(app)}
+                className={`${isActive ? 'active' : ''} ${isOpened ? 'opened-minapp' : ''}`}>
+                <MinAppIcon size={20} app={app} style={{ borderRadius: 6 }} sidebar />
+              </Icon>
+            </Dropdown>
+          </Tooltip>
+        )
+      })}
+    </Menus>
   )
 }
 

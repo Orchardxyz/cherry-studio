@@ -5066,6 +5066,8 @@
       "disabled": "Applications masquées",
       "display_title": "Paramètres d'affichage des applications",
       "empty": "Faites glisser vers ici les applications que vous souhaitez masquer",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Ouvrir un nouveau lien dans une fenêtre du navigateur"
       },

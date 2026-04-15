@@ -191,6 +191,7 @@ export interface SettingsState {
   // MinApps
   maxKeepAliveMinapps: number
   showOpenedMinappsInSidebar: boolean
+  mergeSidebarMinapps: boolean
   minappsOpenLinkExternal: boolean
   /** Mini app region filter: 'auto' (detect from IP), 'CN', or 'Global' */
   minAppRegion: MinAppRegionFilter
@@ -378,6 +379,7 @@ export const initialState: SettingsState = {
   // MinApps
   maxKeepAliveMinapps: 3,
   showOpenedMinappsInSidebar: true,
+  mergeSidebarMinapps: false,
   minappsOpenLinkExternal: false,
   minAppRegion: 'auto',
   enableDataCollection: false,
@@ -799,6 +801,9 @@ const settingsSlice = createSlice({
     setShowOpenedMinappsInSidebar: (state, action: PayloadAction<boolean>) => {
       state.showOpenedMinappsInSidebar = action.payload
     },
+    setMergeSidebarMinapps: (state, action: PayloadAction<boolean>) => {
+      state.mergeSidebarMinapps = action.payload
+    },
     setMinappsOpenLinkExternal: (state, action: PayloadAction<boolean>) => {
       state.minappsOpenLinkExternal = action.payload
     },
@@ -1003,6 +1008,7 @@ export const {
   setSiyuanRootPath,
   setMaxKeepAliveMinapps,
   setShowOpenedMinappsInSidebar,
+  setMergeSidebarMinapps,
   setMinappsOpenLinkExternal,
   setMinAppRegion,
   setEnableDataCollection,

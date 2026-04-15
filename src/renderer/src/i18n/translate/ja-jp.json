@@ -5066,6 +5066,8 @@
       "disabled": "非表示のミニアプリ",
       "display_title": "ミニアプリ表示設定",
       "empty": "非表示にするミニアプリを左側からここにドラッグしてください",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "新視窗のリンクをブラウザで開く"
       },

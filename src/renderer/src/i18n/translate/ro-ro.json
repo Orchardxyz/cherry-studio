@@ -5066,6 +5066,8 @@
       "disabled": "Mini-aplicații ascunse",
       "display_title": "Setări afișare mini-aplicații",
       "empty": "Trage mini-aplicațiile din stânga pentru a le ascunde",
+      "merge_sidebar_description": "[to be translated]:Merge active and pinned mini apps into a single list to save space",
+      "merge_sidebar_title": "[to be translated]:Merge Sidebar Mini Apps",
       "open_link_external": {
         "title": "Deschide în browser linkurile care deschid ferestre noi"
       },
